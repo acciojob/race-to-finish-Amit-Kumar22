@@ -1,4 +1,4 @@
-window.promises = [];
+//window.promises = [];
  function getRandomDelay() {
             return Math.floor(Math.random() * 5000) + 1000;
         }
