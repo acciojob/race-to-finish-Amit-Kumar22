@@ -1,40 +1,37 @@
-
+window.promises = [];
 
 // Do not change the code above this
 // add your promises to the array `promises`
+// Array of promises
+let a = new Promise(resolve => {
+setTimeout(() => { 
+	resolve("a")
+}, 3000)
+})
+let b = new Promise(resolve => {
+setTimeout(() => { 
+	resolve("b")
+}, 2000)
+}) 
+let c = new Promise(resolve => {
+setTimeout(() => {
+resolve("c")
+}, 1000)
+})
+let d = new Promise(resolve => {
+setTimeout(() => { 
+	resolve("d")
+}, 4000)
+})
+	let e = new Promise(resolve => {
+setTimeout(() => { 
+	resolve("e")
+}, 5000)
+})
 
-let promise1 = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        resolve("Promise1");
-    }, Math.floor(Math.random() * 5000) + 1000);
-});
-
-let promise2 = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        resolve("Promise2");
-    }, Math.floor(Math.random() * 5000) + 1000);
-});
-
-let promise3 = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        resolve("Promise3");
-    }, Math.floor(Math.random() * 5000) + 1000);
-});
-
-let promise4 = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        resolve("Promise4");
-    }, Math.floor(Math.random() * 5000) + 1000);
-});
-
-let promise5 = new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        resolve("Promise5");
-    }, Math.floor(Math.random() * 5000) + 1000);
-});
-
-const myArray = [promise1, promise2, promise3, promise4, promise5];
-
-Promise.any(myArray).then((result) => {
-    document.getElementById("output").innerText = result;
-});
+let x = Promise.any([a,b,c,d,e])
+window.promises=[a,b,c,d,e];
+x.then((data) => {
+	const element = document.getElementById("output")
+	element.innerText=data;
+})
